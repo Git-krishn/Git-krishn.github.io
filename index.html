@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Kanth Rayaprolu | Data & Analytics Professional</title>
+
+    <!-- Open Source Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Embedded CSS -->
+    <style>
+        /* Basic Reset & Font Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Base font size */
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #1a2a4a; /* Dark Navy Blue */
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.8rem; font-weight: 700; }
+        h2 { font-size: 2.2rem; margin-bottom: 2rem; text-align: center; position: relative; padding-bottom: 10px;}
+        h2::after { /* Underline effect for section titles */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #007bff; /* Accent Blue */
+        }
+
+        h3 { font-size: 1.6rem; color: #2a4a87; font-weight: 600;}
+        h4 { font-size: 1.1rem; color: #333; font-weight: 600; margin-bottom: 0.5rem; }
+
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(odd) {
+            background-color: #fff; /* Alternate section background */
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: #1a2a4a;
+        }
+        .logo a {
+            color: inherit; /* Make logo text inherit color */
+        }
+        .logo a:hover {
+             text-decoration: none; /* No underline on logo hover */
+             color: #007bff;
+        }
+
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { /* Style for active link */
+            color: #007bff;
+            /* background-color: #e9ecef; */ /* Optional background on hover/active */
+            text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none; /* Hidden by default */
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #1a2a4a;
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: #e9f2ff; /* Light blue background */
+            color: #333;
+            text-align: center;
+            padding: 100px 0;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #hero .container {
+             max-width: 800px;
+        }
+
+        #hero h1 {
+            color: #1a2a4a;
+            margin-bottom: 0.5rem;
+        }
+
+        #hero .subtitle {
+             font-size: 1.4rem;
+             font-family: 'Montserrat', sans-serif;
+             color: #007bff;
+             margin-bottom: 1.5rem;
+             font-weight: 600;
+        }
+
+        #hero .tagline {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 30px; /* Pill shape */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+            transform: translateY(-2px); /* Slight lift effect */
+            color: #fff;
+        }
+
+        /* About Section */
+        #about .container {
+            max-width: 850px; /* Center content slightly wider */
+            text-align: center;
+        }
+        #about h2 { margin-bottom: 3rem; }
+
+
+        /* Skills Section */
+        #skills h2 { margin-bottom: 3rem; }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 3rem;
+        }
+
+        .skill-category {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            border-left: 4px solid #007bff; /* Accent border */
+        }
+
+        .skill-category h3 {
+             font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            color: #1a2a4a;
+        }
+
+        .skill-category ul li {
+            margin-bottom: 0.7rem;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .skill-category ul li::before {
+            content: '✓'; /* Checkmark */
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-weight: bold;
+            top: 1px;
+        }
+
+        .certifications h3 {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+             font-size: 1.3rem;
+        }
+         .certifications ul {
+             text-align: center;
+         }
+
+        .certifications ul li {
+             display: inline-block; /* Display certs side-by-side if space allows */
+             margin: 0 15px 10px 15px;
+             font-size: 0.95rem;
+             background-color: #e9ecef;
+             padding: 5px 15px;
+             border-radius: 20px;
+        }
+
+        /* Experience Section - Timeline */
+        #experience h2 { margin-bottom: 4rem; }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after { /* The vertical line */
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: #e0e6ef; /* Lighter line color */
+            top: 0;
+            bottom: 0;
+            left: 20px; /* Adjust based on icon/circle size */
+            margin-left: -1.5px; /* Center the line */
+        }
+
+        .timeline-item {
+            padding: 10px 0 30px 55px; /* Space around content, left padding for line */
+            position: relative;
+            background-color: inherit;
+        }
+
+        .timeline-item::before { /* Circle on the timeline */
+            content: ''; /* Change this for icon */
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 4px solid #007bff;
+            top: 15px;
+            left: 13px; /* Position circle on the line */
+            z-index: 1;
+        }
+        /* Optional: Add icons instead of circles */
+        /* .timeline-item::before {
+            font-family: "Font Awesome 5 Free"; Replace with your icon font
+            content: "\f0b1"; Briefcase icon
+            font-weight: 900;
+            position: absolute;
+            left: 10px;
+            top: 12px;
+            font-size: 1.2rem;
+            color: #007bff;
+            z-index: 1;
+            background-color: #f9f9f9; background matching section bg
+            padding: 5px; Needed if background is used
+        } */
+
+        .timeline-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+        }
+        .timeline-item .company-date {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+         .timeline-item p.description { /* If you add short descriptions */
+              font-size: 0.95rem;
+              color: #666;
+         }
+
+        /* Projects Section */
+        #projects h2 { margin-bottom: 3rem; }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #1a2a4a;
+        }
+        .project-card ul {
+            margin-top: 1rem;
+            flex-grow: 1; /* Allows footer link to stick to bottom if needed */
+        }
+        .project-card ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .project-card ul li::before {
+            content: '▹'; /* Triangle bullet */
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-weight: bold;
+            top: 1px;
+        }
+        .project-card strong { /* Highlight keywords */
+            font-weight: 600;
+            color: #333;
+        }
+         /* Optional: Link at the bottom of the card
+         .project-card .project-link {
+             margin-top: auto; Make link stick to bottom
+             padding-top: 1rem;
+             align-self: flex-start;
+         } */
+
+        /* Education Section */
+         #education {
+             background-color: #e9f2ff; /* Light blue like hero */
+         }
+         #education h2 { margin-bottom: 3rem; }
+        .education-item {
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            text-align: center;
+             background-color: #fff;
+             padding: 25px;
+             border-radius: 8px;
+             box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+        .education-item h3 {
+             font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .education-item p {
+            margin-bottom: 0;
+            font-style: normal;
+             font-weight: 600;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        #contact h2 { margin-bottom: 3rem; }
+        #contact .container {
+             max-width: 700px;
+             text-align: center;
+        }
+
+        #contact p {
+             font-size: 1.1rem;
+             margin-bottom: 2.5rem;
+        }
+
+        #contact ul {
+            list-style: none;
+            margin-top: 1.5rem;
+             display: inline-block; /* Center list items */
+             text-align: left; /* Align text left within list */
+        }
+        #contact ul li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+             display: flex; /* Align icon and text */
+             align-items: center;
+        }
+         /* If using FontAwesome, style icons here: */
+        #contact ul li i { /* Example for FontAwesome */
+             color: #007bff;
+             font-size: 1.3rem;
+             margin-right: 15px;
+             width: 25px; /* Ensure consistent spacing */
+             text-align: center;
+        }
+        #contact ul li strong {
+             margin-right: 10px;
+             font-weight: 600;
+        }
+        #contact a {
+            color: #0056b3;
+            font-weight: 600;
+        }
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #1a2a4a;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        footer p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+         footer a {
+            color: #a1c4ff; /* Lighter blue for links in footer */
+         }
+         footer a:hover {
+             color: #fff;
+         }
+
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.4rem; }
+            #hero .subtitle { font-size: 1.2rem; }
+        }
+
+
+        @media (max-width: 768px) {
+             html { font-size: 15px; } /* Slightly smaller base font */
+
+             section { padding: 60px 0; }
+             h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; margin-bottom: 2.5rem;}
+            h3 { font-size: 1.3rem; }
+
+             .container { padding: 0 15px; }
+
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+                position: relative; /* Needed for absolute positioning of toggle */
+            }
+
+             .logo {
+                  margin-bottom: 10px; /* Space below logo on mobile */
+             }
+
+
+            .nav-links {
+                display: none; /* Hide links by default on mobile */
+                width: 100%;
+                flex-direction: column;
+                margin-top: 10px;
+                background-color: #fff; /* Add background for clarity when open */
+                 position: absolute; /* Position relative to header */
+                 top: 100%; /* Position below the header content */
+                 left: 0;
+                 box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                 border-top: 1px solid #eee;
+            }
+             .nav-links.active { /* Class added by JS */
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                 border-bottom: 1px solid #eee; /* Separator lines */
+            }
+             .nav-links li:last-child {
+                  border-bottom: none;
+             }
+
+            .nav-links li a {
+                 display: block; /* Make link take full width */
+                 padding: 15px;
+                 border-radius: 0; /* Remove border-radius for mobile menu items */
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger menu */
+                position: absolute;
+                top: 50%; /* Vertically center relative to logo/first line */
+                transform: translateY(-50%);
+                right: 15px;
+            }
+
+            #hero {
+                padding: 80px 0;
+                min-height: auto; /* Adjust height for mobile */
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr; /* Stack skills vertically */
+                gap: 25px;
+            }
+            .certifications ul li {
+                 display: block; /* Stack certs vertically */
+                 margin: 10px auto;
+                 max-width: 300px;
+            }
+
+            .timeline::after {
+                left: 15px; /* Move timeline line closer */
+            }
+            .timeline-item {
+                padding-left: 45px; /* Adjust padding */
+            }
+             .timeline-item::before {
+                left: 8px; /* Adjust circle position */
+                 width: 13px;
+                 height: 13px;
+                 border-width: 3px;
+            }
+
+             .projects-grid {
+                 grid-template-columns: 1fr; /* Stack projects */
+             }
+             #contact ul li {
+                  font-size: 1rem;
+             }
+              #contact ul li i {
+                 font-size: 1.1rem;
+                 margin-right: 10px;
+              }
+
+        }
+
+        @media (max-width: 576px) {
+             h1 { font-size: 2rem; }
+             #hero .subtitle { font-size: 1.1rem; }
+             #hero .tagline { font-size: 1rem; }
+             .cta-button { padding: 12px 25px; font-size: 0.95rem;}
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="container">
+                 <div class="logo">
+                     <a href="#hero">Krishna Kanth Rayaprolu</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                     <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <h1>Krishna Kanth Rayaprolu</h1>
+                <p class="subtitle">Data & Analytics Associate | PwC</p>
+                <p class="tagline">
+                    5 years of experience driving data solutions. Specializing in Azure, GCP, PySpark, SQL, and ETL pipelines within the Banking and Retail sectors. Passionate about transforming complex data into actionable insights and building scalable, high-performance systems.
+                </p>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+                 <!-- Optional Resume Button
+                 <a href="Krishna_Kanth_Rayaprolu_Resume.pdf" target="_blank" class="cta-button secondary">Download Resume</a>
+                 -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a results-oriented Data & Analytics Associate at PricewaterhouseCoopers (PwC) in Bangalore, with a strong foundation in designing and implementing scalable data pipeline architectures, performing insightful data analysis, and developing robust ETL processes. My expertise lies in leveraging cloud technologies, particularly within the Azure ecosystem (Data Factory, Databricks, Synapse), complemented by hands-on experience with GCP (BigQuery, Data Proc) and a solid understanding of AWS concepts.</p>
+                <p>With experience managing daily financial data loads (50-60 GB), I excel in optimizing query performance through advanced data modeling, partitioning, and implementing comprehensive data quality frameworks. My background spans roles from ML Data Associate to Senior Data Engineer, consistently delivering value in dynamic Banking and Retail environments. Recognized for sincerity, strong work ethic, and dedication, I am eager to tackle new challenges and contribute impactful solutions from day one.</p>
+             </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming & Query</h3>
+                        <ul>
+                            <li>Python (Functional, Logical)</li>
+                            <li>PySpark</li>
+                            <li>SQL (Advanced Queries, Optimization)</li>
+                            <li>Apache Airflow (Workflow Orchestration)</li>
+                            <li>Unix Scripting</li>
+                        </ul>
+                    </div>
+                     <div class="skill-category">
+                        <h3>Cloud Platforms</h3>
+                        <ul>
+                            <li>Azure (Data Factory, Data Lake, Databricks, Synapse)</li>
+                            <li>GCP (BigQuery, Data Proc)</li>
+                            <li>AWS (Conceptual Understanding)</li>
+                            <li>Snowflake</li>
+                        </ul>
+                    </div>
+                     <div class="skill-category">
+                        <h3>Big Data & Databases</h3>
+                         <ul>
+                            <li>Apache Spark / Spark SQL</li>
+                             <li>Hadoop, Hive, Sqoop</li>
+                             <li>Oracle Database</li>
+                            <li>PostgreSQL, MS SQL</li>
+                            <li>Teradata</li>
+                        </ul>
+                    </div>
+                     <div class="skill-category">
+                        <h3>Data Engineering</h3>
+                        <ul>
+                             <li>ETL/ELT Development</li>
+                             <li>Data Modelling (Kimball, Inmon)</li>
+                             <li>Data Warehousing Concepts</li>
+                             <li>Git Version Control</li>
+                            <li>Error Handling & Retry Mechanisms</li>
+                             <li>Data Quality Management</li>
+                         </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Methodologies & Core Skills</h3>
+                        <ul>
+                            <li>Agile / Waterfall</li>
+                            <li>CI/CD Concepts</li>
+                             <li>Analytical Problem Solving</li>
+                            <li>Solution Design</li>
+                            <li>Communication</li>
+                            <li>Adaptability & Teamwork</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="certifications">
+                    <h3>Certifications</h3>
+                     <ul>
+                         <li>Microsoft Certified: Azure Data Engineer Associate</li>
+                        <li>Neo4j Certified Professional</li>
+                        <li>DP-900 Azure Data Fundamentals</li>
+                        <li>Collibra Certified Data Steward</li>
+                    </ul>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <h2>Professional Journey</h2>
+                 <div class="timeline">
+                     <div class="timeline-item">
+                        <h3>Associate</h3>
+                        <span class="company-date">PricewaterhouseCoopers (PwC), Bangalore | Mar 2025 - Present</span>
+                        <!-- Add 1-2 bullet points here if desired -->
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Senior Data Engineer</h3>
+                        <span class="company-date">Hexaware Technologies | Aug 2024 - Jan 2025</span>
+                         <!-- <p class="description">Focused on cloud data solutions and ETL pipeline optimization.</p> -->
+                     </div>
+                    <div class="timeline-item">
+                        <h3>Systems/Data Engineer</h3>
+                         <span class="company-date">Tata Consultancy Services (TCS) | Jun 2022 - Aug 2024</span>
+                         <!-- <p class="description">Developed and maintained data integration processes for banking clients.</p> -->
+                     </div>
+                    <div class="timeline-item">
+                        <h3>Software Engineer</h3>
+                         <span class="company-date">HCL Technologies | Jul 2021 - Jun 2022</span>
+                         <!-- <p class="description">Contributed to software development lifecycles with a focus on data handling.</p> -->
+                    </div>
+                    <div class="timeline-item">
+                        <h3>ML Data Associate</h3>
+                         <span class="company-date">Amazon | Feb 2020 - Jul 2021</span>
+                        <!-- <p class="description">Supported machine learning projects through data preparation and quality assurance.</p> -->
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+         <section id="projects">
+            <div class="container">
+                <h2>Key Project Experience</h2>
+                <div class="projects-grid">
+
+                     <div class="project-card">
+                        <h3>Cloud Data Transformation & Orchestration (Banking)</h3>
+                        <ul>
+                            <li>Developed end-to-end <strong>PySpark/SQL pipelines</strong>, improving efficiency by 30%.</li>
+                            <li>Implemented complex <strong>SQL queries</strong> with partitioning/indexing for optimized performance.</li>
+                             <li>Utilized <strong>Azure Data Factory</strong> for robust batch job scheduling and orchestration.</li>
+                            <li>Configured monitoring/alerting, enhancing job success rates by 15%.</li>
+                            <li>Engineered sophisticated error handling, reducing failure rates by 20%.</li>
+                             <li>Automated <strong>data validation</strong> processes for reliability.</li>
+                        </ul>
+                     </div>
+
+                     <div class="project-card">
+                        <h3>Cloud Data Migration (Banking)</h3>
+                         <ul>
+                            <li>Optimized <strong>Oracle DB performance</strong> through query tuning (25% faster execution).</li>
+                             <li>Designed PySpark-based <strong>ETL processes</strong> for seamless data migration.</li>
+                            <li>Maintained crucial data mappings, definitions, and flow diagrams.</li>
+                             <li>Applied <strong>dimensional modeling</strong> and warehousing best practices.</li>
+                             <li>Managed scheduled workflows ensuring cross-system data consistency.</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Data Quality Support (Alexa Services)</h3>
+                         <ul>
+                            <li>Contributed to enhancing <strong>data quality checks</strong> and processes for Alexa.</li>
+                            <li>Ensured reliability and cleanliness of data for customer-facing features.</li>
+                             <li>Efforts resulted in a measurable <strong>10% increase in user satisfaction</strong> metrics related to data accuracy.</li>
+                        </ul>
+                    </div>
+
+                 </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+             <div class="container">
+                 <h2>Education</h2>
+                 <div class="education-item">
+                    <h3>Bachelor of Technology (B.Tech)</h3>
+                     <p>Electronics and Communication Engineering</p>
+                     <p style="font-size: 1rem; color: #666;">Jawaharlal Nehru Technological University Kakinada</p>
+                 </div>
+             </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                 <p>I'm always interested in new opportunities and collaborations in the data space. Feel free to reach out!</p>
+                <ul>
+                    <!-- If using FontAwesome, add icons like <i class="fas fa-envelope"></i> before <a> -->
+                    <li><a href="mailto:krishnakanth1309">krishnakanth1309@gmail.com</a></li>
+                    <li><a href="tel:+919959789895">+91 9959789895</a></li>
+                     <li>Bangalore, India</li>
+                    <!-- Add LinkedIn if available: -->
+                    <li><a href="https://linkedin.com/in/imkrishn" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
+                 </ul>
+                 <p style="margin-top: 3rem; font-size: 1rem;">Languages: English, Telugu, Hindi</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Krishna Kanth Rayaprolu. All rights reserved.</p>
+             <!-- Optional: Add links to privacy policy or terms if needed -->
+         </div>
+    </footer>
+
+    <!-- Embedded JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinkItems = document.querySelectorAll('.nav-links a');
+            const header = document.querySelector('header');
+
+            // Mobile Menu Toggle
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when a link is clicked
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth Scrolling & Active Link Highlighting
+             const sections = document.querySelectorAll('section[id]'); // Get all sections with an ID
+
+             function activateNavLink() {
+                 let currentSection = '';
+                 const scrollY = window.pageYOffset;
+
+                 sections.forEach(section => {
+                      const sectionTop = section.offsetTop - header.offsetHeight - 50; // Adjust offset as needed
+                      const sectionHeight = section.offsetHeight;
+                     const sectionId = section.getAttribute('id');
+
+                     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                          currentSection = sectionId;
+                     }
+                 });
+
+                 // Activate the correct nav link
+                  navLinkItems.forEach(link => {
+                     link.classList.remove('active');
+                      if (link.getAttribute('href') === `#${currentSection}`) {
+                          link.classList.add('active');
+                     }
+                  });
+
+                  // Special case for hero or top of page
+                   if (scrollY < sections[0].offsetTop - header.offsetHeight - 50) {
+                       navLinkItems.forEach(link => link.classList.remove('active'));
+                        const homeLink = document.querySelector('.nav-links a[href="#hero"]');
+                        if(homeLink) homeLink.classList.add('active');
+                   }
+             }
+
+             // Add scroll listener
+             window.addEventListener('scroll', activateNavLink);
+
+              // Initial check in case the page loads on a specific section
+              activateNavLink();
+
+
+            // Set current year in footer
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
